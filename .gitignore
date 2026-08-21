@@ -37,3 +37,10 @@ test-results/
 # (Comment out the next line if you want originals committed.)
 # asset/
 node_modules_old*/
+
+# We use pnpm — ignore npm/yarn lockfiles
+package-lock.json
+yarn.lock
+
+# TS build cache
+*.tsbuildinfo
