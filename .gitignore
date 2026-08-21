@@ -28,3 +28,12 @@ Thumbs.db
 coverage/
 playwright-report/
 test-results/
+
+# next-env is generated
+# (kept in repo per Next convention — do not ignore)
+
+# Raw asset originals are large; optimized derivatives live in public/media.
+# Keep originals out of the deploy bundle but available locally.
+# (Comment out the next line if you want originals committed.)
+# asset/
+node_modules_old*/

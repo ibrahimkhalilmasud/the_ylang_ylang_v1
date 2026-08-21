@@ -2,9 +2,11 @@
   "_source": "quick-facts.html + explore-the-villa.html, crawled 2026-08-21. See docs/FACTS_DATABASE.md for verification status.",
   "identity": {
     "name": "The Ylang Ylang",
+    "established": 2002,
     "tagline": "Passionate Serenity",
     "positioning": "Absolute beachfront. Private, Luxurious and Indulgent.",
-    "managedBy": "The Elite Havens Group"
+    "managedBy": "The Elite Havens Group",
+    "_establishedSource": "Official brand key art asset (asset/images/15.png — 'EST. 2002')"
   },
   "location": {
     "village": "Saba",
