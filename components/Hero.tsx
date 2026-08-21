@@ -1,60 +1,32 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
-import { motion, useReducedMotion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
-import { HERO_VIDEO } from '@/lib/media'
+import { motion } from 'framer-motion'
+import { IMAGES } from '@/lib/media'
 import { RESERVE_HREF } from '@/lib/nav'
 
 /**
- * Cinematic hero (brief §8/§14). Decision: single exceptional still (crisp LCP) with a
- * muted, looping property video layered in once it can play — the poster IS the villa-lawn
- * hero image, so first paint is instant and never a blurry video frame. Reduced motion →
- * still image only, no video, no Ken-Burns.
+ * Cinematic hero (brief §8/§14). Decision: a single exceptional, AI-upscaled property
+ * still (the blue-hour estate) with a slow Ken-Burns drift — crisper and more premium
+ * than the soft 720p video, and far lighter. The image is the LCP element (priority).
+ * Ken-Burns is pure CSS and is disabled under prefers-reduced-motion (see globals.css).
  */
 export function Hero() {
-  const reduce = useReducedMotion()
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [videoReady, setVideoReady] = useState(false)
-
-  useEffect(() => {
-    if (reduce) return
-    const v = videoRef.current
-    if (!v) return
-    const onPlay = () => setVideoReady(true)
-    v.addEventListener('playing', onPlay)
-    // Attempt autoplay; ignore rejection (some browsers block until interaction).
-    v.play().catch(() => {})
-    return () => v.removeEventListener('playing', onPlay)
-  }, [reduce])
-
   return (
     <section className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-sand-black">
-      {/* Poster still — the LCP element */}
-      <div
-        className={`absolute inset-0 bg-cover bg-center ${reduce ? '' : 'animate-ken-burns'}`}
-        style={{ backgroundImage: `url(${HERO_VIDEO.poster})` }}
-        aria-hidden="true"
-      />
-
-      {/* Property video, fades in over the still once playing */}
-      {!reduce && (
-        <video
-          ref={videoRef}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-luxe ${
-            videoReady ? 'opacity-100' : 'opacity-0'
-          }`}
-          poster={HERO_VIDEO.poster}
-          muted
-          loop
-          playsInline
-          preload="none"
-          aria-hidden="true"
-        >
-          <source src={HERO_VIDEO.webm} type="video/webm" />
-          <source src={HERO_VIDEO.mp4} type="video/mp4" />
-        </video>
-      )}
+      {/* Hero still — the LCP element */}
+      <div className="absolute inset-0 animate-ken-burns">
+        <Image
+          src={IMAGES.heroVillaLawn.src}
+          alt={IMAGES.heroVillaLawn.alt}
+          fill
+          priority
+          sizes="100vw"
+          quality={90}
+          className="object-cover"
+        />
+      </div>
 
       {/* Legibility scrim */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/70" />

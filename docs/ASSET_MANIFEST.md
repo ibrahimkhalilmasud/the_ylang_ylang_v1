@@ -8,6 +8,20 @@
 > All imagery below is genuine property photography and is the visual source of truth.
 > No stock, no AI-generated villa imagery, no fictional facilities (brief §9/§39).
 
+## Image quality upgrade (2026-08-21)
+All 18 site photographs were **AI-upscaled to 4K** (ByteDance upscaler via the Higgsfield
+MCP) — the *same real images*, enhanced to 4096px, nothing generated or altered. 4K
+masters live in `asset/images/4k-upscaled/`; the media pipeline now sources these and
+outputs 2560px web JPGs (same aspect ratios, same slots, same format — only sharper).
+The two lowest-res originals (`entrance-sculpture`, `staff`, formerly 1280px) gained the
+most. Cost: 36 credits (2/image). **No AI-generated villa imagery** — upscaling only.
+
+## Hero change (2026-08-21)
+The hero was switched from the 720p property video to the **AI-upscaled blue-hour villa
+still** (`hero-villa-lawn`) with a slow Ken-Burns drift — crisper, more premium, and
+lighter than the soft video. Hero video files removed; `Part 1–6.mp4` remain in `asset/`
+for possible future use.
+
 ## New verified facts discovered in assets
 - **Established 2002** — from the official brand key art (`15.png`: "EST. 2002").
 - **Official logo:** "YY" monogram + "YLANG YLANG" wordmark, "BALI INDONESIA"
