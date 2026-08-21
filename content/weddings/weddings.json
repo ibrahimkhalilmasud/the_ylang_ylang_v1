@@ -1,0 +1,8 @@
+{
+  "_source": "weddings.html + quick-facts.html, crawled 2026-08-21",
+  "heading": "Weddings & Events",
+  "body": "Located beachside with panoramic beach and island views, extensive flat lawns and various outdoor decks and gazebos, The Ylang Ylang is well suited to hosting events. Dinner parties and gatherings with up to 20 guests can be catered within the villa at no additional charge, organised in advance with the chef and manager. Larger weddings and special events can be arranged with prior notice.",
+  "capacities": { "maxStanding": 70, "maxSeated": 50, "includedNoCharge": 20 },
+  "guidelines": "Elite Havens general guidelines for events and villa-specific event guidelines apply (linked from the live site).",
+  "_note": "See docs/SOURCE_COMPARISON.md §2 — present the 20-guest no-charge threshold and the 70/50 arranged maximum together; never state '70 included'."
+}

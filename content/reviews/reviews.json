@@ -1,0 +1,14 @@
+{
+  "_source": "theylangylang.com home reviews feed + guest-reviews.html, crawled 2026-08-21",
+  "_note": "Site publishes 94 reviews and NO numeric star rating. Do NOT fabricate a rating or a review-schema aggregateRating. Quote verbatim; attribute exactly as published (first name + last initial, country, date range). Sample below preserves a representative set spanning years; the full 94 should be captured from /guest-reviews.html before launch.",
+  "totalCount": 94,
+  "hasNumericRating": false,
+  "sample": [
+    { "dates": "May 28th, 2026 – Jun 8th, 2026", "author": "Alexander T", "country": "Switzerland", "text": "It was a wonderful stay at a beautiful place, and the kind staff took great care of us. We are looking forward to coming back!" },
+    { "dates": "Apr 7th, 2026 – Apr 16th, 2026", "author": "Ashmeet K", "country": "United Kingdom", "text": "This was our first time in Bali and at Ylang Ylang Villa, and it did not disappoint. Kadek and her team ensured we were very well looked after throughout our stay. The team was amazing, and they made our holiday unforgettable. Ylang Ylang is a beautiful villa, and we thoroughly enjoyed our stay." },
+    { "dates": "Feb 22nd, 2025 – Feb 24th, 2025", "author": "Gopal K", "country": "United States", "text": "Beautiful villa, outstanding crew, and staff. They made our stay very welcoming and wonderful. They attended to every need with a lovely smile on their face. 7-star service. Thank you!" },
+    { "dates": "May 29th, 2025 – Jun 4th, 2025", "author": "Sean P", "country": "Canada", "text": "Everything is excellent. From the minute we arrived, we were awestruck by the stunning beauty, elegance, class, and luxury of the villa. We were treated above and beyond by all the staff. We recommend this place and were treated like family, 100%." },
+    { "dates": "Oct 1st, 2016 – Oct 8th, 2016", "author": "Kevin P", "country": "China", "text": "A magical place on the beach in Bali. Our fourth trip to Bali was the best simply because we stayed at this fabulous vacation villa. Manager Dewa made every effort to make our stay memorable. The chef was top notch creating any kind of cultural dish with ease. We are returning ....soon." },
+    { "dates": "May 8th, 2013 – May 12th, 2013", "author": "Kailey Furniss", "country": "United States", "text": "The Ylang Ylang was absolutely amazing. We stayed there with all of our immediate family for our wedding and we were all over joyed with our stay. The grounds were breathtaking, the staff more than attentive and kind, the rooms comfortable and the food incredible! From the moment you turn on the road leading up you feel like you are going to a royal palace." }
+  ]
+}

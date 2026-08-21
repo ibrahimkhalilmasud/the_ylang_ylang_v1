@@ -1,0 +1,30 @@
+{
+  "_source": "ketewel-bali.html + elitehavens-concierge.html, crawled 2026-08-21",
+  "locale": "The Ylang Ylang rests in the quiet coastal village of Saba, in an area collectively known as Ketewel, within Bali's eastern Gianyar Regency — a naturally beautiful, unspoilt region packed with cultural and scenic attractions. Saba is the quintessential Balinese village of emerald rice fields and coconut groves, with a harmonious mix of unobtrusive expat residences and local dwellings.",
+  "beach": "The villa's gardens stretch down to Saba Beach, its sands shimmering black — a reminder that Bali is a volcanic island. The deserted beach offers unobstructed panoramas across the Badung Strait to Nusa Penida; on a clear day the silhouette of Mount Agung is visible. Sunrises are spectacular, especially over Nusa Penida's limestone cliffs.",
+  "river": "A tidal river ('Peanut River') flows some of the time between the beach and villa. For half the year you can stroll directly to the beach; the other half requires crossing by a small boat provided by the villa, as the river alters course with the seasons.",
+  "swimming": "With strong currents directly in front, it is safer to swim in a protected bay ~5 minutes westwards, or head south to the calm waters of Sanur. The famous surf spot Keramas (and Komune beach club) is 5 minutes away, with night surfing; excellent surf lies 10 minutes in either direction, and Mascheti Beach hosts international surfing tournaments.",
+  "culture": "Saba is famous for traditional Gamelan music and some of the island's finest Legong dancers. Private dance performances at the villa can be arranged. Balinese Hindu purification ceremonies are held at the nearby sacred Pura Segara sea temple; prayer blessings are performed daily at the main temple at the entrance to the villa's road.",
+  "distances": [
+    { "place": "Saba Bay Stables", "km": 1.5 },
+    { "place": "Bali Safari and Marine Park", "km": 5 },
+    { "place": "Cucukan Beach", "km": 5 },
+    { "place": "Sukawati", "km": 6 },
+    { "place": "Mas Carving Center", "km": 12 },
+    { "place": "Sanur", "km": 15 },
+    { "place": "Ubud", "km": 16 },
+    { "place": "Ngurah Rai Airport (DPS)", "km": 29 }
+  ],
+  "thingsToDo": [
+    "Horse riding along Saba Beach's black sands with Saba Bay Stables",
+    "Sanur (~20 min): reef-sheltered swimming, water sports, 5km seafront promenade",
+    "Ubud (~25 min): Balinese dance at the Royal Palace, restaurants (Mozaic), COMO Shambhala spa",
+    "Artisan villages: Celuk (silver), Batubulan (stone), Mas (wood), Sukawati (arts & crafts market)",
+    "Nusa Lembongan & Nusa Penida: scuba diving and snorkeling; Amed & Tulamben (shipwreck diving)",
+    "Bali Safari & Marine Park (5 min); Odyssey Submarine Adventure in Amuk Bay",
+    "Bali Spirit Festival at Batuan (~10 min); private yoga at the villa or Ubud's Yoga Barn",
+    "Seminyak (~45 min): gourmet dining, boutiques, beachfront bars",
+    "Bedugul: three volcanic lakes and Pura Ulun Danu Bratan"
+  ],
+  "concierge": "The Elite Havens concierge suggests, books and arranges to make the stay memorable: restaurant reservations, cooking classes, white-water rafting, snorkeling/diving, bike tours, surfing lessons, luxury yacht charter, golf, and curated cultural experiences (Tabanan tour with Batukaru & Taman Ayun temples and a private Balinese lunch; Ubud tour with Tegalalang rice terraces and Batuan Temple). In-villa services include poolside massage, personal trainer, pre-stocked provisions, and traditional Balinese performers."
+}

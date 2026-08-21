@@ -1,0 +1,33 @@
+{
+  "_source": "explore-the-villa.html (Bedrooms) + quick-facts.html, crawled 2026-08-21",
+  "_discrepancy": "Quick Facts calls the twin pair 'convertible to Kings'; Explore calls them children's Junior Rooms. See docs/SOURCE_COMPARISON.md §1.",
+  "summary": "Six ensuite bedrooms in two symmetrical single-storey wings flanking the pool. Sleeps up to 12 (+2 baby cots). Extra beds on request at additional cost.",
+  "rooms": [
+    {
+      "id": "master-suites",
+      "name": "Master Suites",
+      "count": 2,
+      "bed": "King-size contemporary four-poster",
+      "body": "Furthest from the main pavilion and closest to the beach, the two luxurious master suites face each other across the pool. Both feature a king-size four-poster bed, vanity area and silk upholstered couch. Lavish bathrooms have generous sunken bathtubs, a room-size walk-in rain shower, his & hers washbasins, and a small courtyard with modern glass sculptures beside a traditional Balinese water statue and pool. A terraced area offers cushioned outdoor furniture with privacy drapes and a private plunge pool overlooking the sea. Equipped with satellite TV and DVD player.",
+      "features": ["Private plunge pool (3m x 3m)", "Sunken bathtub", "Walk-in rain shower", "His & hers basins", "Sea-facing terrace", "Satellite TV + DVD"]
+    },
+    {
+      "id": "queen-rooms",
+      "name": "Queen Rooms",
+      "count": 2,
+      "bed": "Queen-size four-poster",
+      "body": "Next to the master suites, two Queen Rooms feature queen-size four-poster beds. Wood and glass sliding doors lead to chic ensuite bathrooms with mini-sunken baths that double as showers, in massage and traditional Balinese style.",
+      "features": ["Queen four-poster", "Mini-sunken bath / shower", "Ensuite", "Sunny conservatory-style glass roof"]
+    },
+    {
+      "id": "junior-rooms",
+      "name": "Junior Rooms",
+      "count": 2,
+      "bed": "Twin beds (one canopied with mosquito net); can be configured for children",
+      "body": "Accessed through internal sliding doors from each Queen Room, the adjoining Junior Rooms each have twin beds — one with canopied mosquito nets — making them very suitable for children. Positioned nearest the living pavilion for easy parental surveillance in the evenings. Ensuites with showers attached to both.",
+      "features": ["Twin beds", "Adjoins a Queen Room", "Ensuite shower", "Ideal for children"],
+      "note": "Quick Facts markets these as convertible to Kings — confirm with client."
+    }
+  ],
+  "sharedDetail": "Interiors in all four (queen + junior) rooms follow the master-suite style; all bathrooms are sunlit via conservatory-style sloping glass roofs with rattan. Intimate patios are edged with white pebbles, black tiles and tropical foliage, with glass candle-holders and a black reclining lounger."
+}

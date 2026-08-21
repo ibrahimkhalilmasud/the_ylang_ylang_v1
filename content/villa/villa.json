@@ -1,0 +1,33 @@
+{
+  "_source": "https://www.theylangylang.com/about-the-ylang-ylang/explore-the-villa.html + quick-facts.html, crawled 2026-08-21",
+  "_note": "Verbatim source prose preserved for content-preservation guarantee. Rewrite for UI in components; keep facts intact. See docs/FACTS_DATABASE.md.",
+  "layout": {
+    "heading": "Villa Layout",
+    "body": "The Ylang Ylang's grand entrance features Balinese statues lining a stone-clad wall as cascading water jugs fill a lily pond. An inner courtyard dominated by calming pools of water leads to the property's main structure, an impressive two-storey living and dining pavilion. Architectural design incorporates contemporary Asian elegantly fused with traditional Balinese touches and high-quality materials. Predominantly open-plan and open-sided, the main pavilion contains living and dining areas plus a well-equipped kitchen. An upper gallery reveals a rooftop meditation and yoga deck, spa treatment deck and further dining and lounging areas. The villa's impressive movie studio theatre is also housed in this pavilion. Landscaped gardens and an attractive 16-metre swimming pool and stone deck spread out towards the ocean from this central building, flanked by a pair of symmetrical, single-storey wings containing six ensuite bedrooms. Revealed within the immaculate lawns are two balés (gazebos) for dining and relaxation."
+  },
+  "indoorLiving": {
+    "heading": "Indoor Living",
+    "body": "The heart of the villa, the main pavilion stands two storeys tall, an impressive building with an 11-metre-high atrium, symmetrically balanced with cream-hued colonnades supporting a soaring, vaulted ceiling. Mainly open-sided (protected by floor-to-ceiling wood doors, flowing silk curtains and bamboo blinds), the pavilion is cooled by sea breeze and ceiling fans. The living area is furnished with large floor cushions, a deep daybed draped in organza silk and flanking sofas in the signature golden and black theme. The formal dining area is dominated by a lacquered wood table accommodating 12 to 14 diners. Black sliding doors reveal an air-conditioned movie studio theatre with satellite TV, DVDs projected onto an extensive wall screen, a massive black sofa bed, top-of-the-range surround-sound, and a well-stocked library, computer with broadband internet and printer. Two black lacquered staircases lead up to a black timbered gallery with two intimate dining tables, a centrally-positioned balcony with folding glass doors and ocean views, a rooftop deck for yoga or stargazing, and a rooftop massage deck with two massage beds."
+  },
+  "outdoorLiving": {
+    "heading": "Outdoor Living",
+    "body": "From the main pavilion, the 16-metre saltwater pool stretches out towards the landscaped seaside gardens, bounded by swaying coconut palms and adorned with ornamental water fountains, surrounded by a stone deck with weatherproof rattan sunbeds. Manicured lawns roll down to a tidal river that shows up sometimes, glistening black sands and crashing surf. At the garden's end is a timbered sun deck with sun loungers and unobstructed beach views. Lawns are dotted with Indonesian modern art sculptures and frangipani trees. On each side, overlooking the beach, is a black contemporary balé pavilion: one for romantic dining and lunches, the other for relaxation and massages, contrasting with two miniature Hindu shrines nearby."
+  },
+  "service": {
+    "_source": "staff.html — rewritten in UI; roster is factual (quick-facts.html)",
+    "heading": "Five-star service",
+    "body": "One of the greatest advantages of staying in a villa is the personalised service of dedicated staff. The Ylang Ylang's professionally trained team offers warm, friendly Balinese hospitality, tailored to how much staff presence you prefer — from mealtimes only to attentive service throughout the day.",
+    "roster": [
+      "Full-time manager (also butler)",
+      "Senior housekeeper–butler",
+      "Maintenance man–butler",
+      "Chef",
+      "Kitchen assistant",
+      "Junior housekeeper",
+      "Laundry",
+      "Gardener",
+      "Security guards"
+    ],
+    "rosterNote": "Additional staff such as spa therapists and babysitters available on request for an extra charge."
+  }
+}

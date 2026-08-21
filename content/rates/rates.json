@@ -1,0 +1,31 @@
+{
+  "_source": "rates.html, crawled 2026-08-21",
+  "_warning": "TIME-SENSITIVE. Rates and promotions must be re-verified against the live site / Elite Havens before any public launch. All rates are 'all-inclusive' USD/night for exclusive whole-villa use.",
+  "currency": "USD",
+  "basis": "per night, all-inclusive, whole-villa exclusive use",
+  "configurations": {
+    "6-bedroom": [
+      { "period": "04 Jul – 28 Aug", "nightly": 1548, "minNights": 4 },
+      { "period": "29 Aug – 25 Oct", "nightly": 1052, "minNights": 2 },
+      { "period": "26 Oct – 12 Dec", "nightly": 1052, "minNights": 2 },
+      { "period": "13 Dec – 25 Dec", "nightly": 1548, "minNights": 4 },
+      { "period": "26 Dec – 05 Jan 2027", "nightly": 1895, "minNights": 5 }
+    ],
+    "4-bedroom": "UNVERIFIED — rate tab exists on live site but figures were not captured. Do not invent."
+  },
+  "inclusions": "Exclusive use of the whole villa, private swimming pool, unlimited WiFi, and full staff service including personal chef, villa manager, butlers, housekeepers and security.",
+  "promotions": [
+    { "name": "Q1 Promo 25%", "detail": "25% off stays 05 Jan–31 Mar 2027; book by 31 Dec 2026." },
+    { "name": "Stay 4, Pay 3", "detail": "Stays to 21 Dec 2026; book by 10 Dec 2026." },
+    { "name": "Stay 7, Pay 5", "detail": "Stays to 21 Dec 2026; book by 10 Dec 2026." },
+    { "name": "Island Escapes 20%", "detail": "20% off stays to 21 Dec 2026; book by 10 Dec 2026; min 2 nights low / 3 high season." },
+    { "name": "Early bird", "detail": "Up to 10% when booking ≥120 days ahead (excludes New Year)." },
+    { "name": "Last minute", "detail": "Up to 10% checking in before 11 Sep 2026." }
+  ],
+  "promoTerms": "Promotions are not combinable; standard inclusions and minimum nights apply; applicable to select villas; subject to availability.",
+  "booking": {
+    "provider": "external-enquiry",
+    "enquireUrl": "https://booking.privatehomesandvillas.com/availvillas.html?villaid=YlangYlang",
+    "note": "No confirmed public real-time availability API. Booking is enquiry-based via the external Elite Havens / Private Homes & Villas engine."
+  }
+}

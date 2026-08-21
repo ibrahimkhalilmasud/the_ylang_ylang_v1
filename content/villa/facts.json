@@ -1,0 +1,34 @@
+{
+  "_source": "quick-facts.html + explore-the-villa.html, crawled 2026-08-21. See docs/FACTS_DATABASE.md for verification status.",
+  "identity": {
+    "name": "The Ylang Ylang",
+    "tagline": "Passionate Serenity",
+    "positioning": "Absolute beachfront. Private, Luxurious and Indulgent.",
+    "managedBy": "The Elite Havens Group"
+  },
+  "location": {
+    "village": "Saba",
+    "area": "Ketewel",
+    "regency": "Gianyar Regency",
+    "island": "Bali",
+    "country": "Indonesia"
+  },
+  "capacity": { "maxGuests": 12, "bedrooms": 6, "babyCots": 2, "alsoBookableAs": "4-bedroom" },
+  "pool": { "main": "16m x 5m", "depth": "1m–1.5m", "type": "saltwater", "plungePools": "2 x (3m x 3m)" },
+  "area": { "land_sqm": 2100, "villa_sqm": 1100, "parking_cars": 6 },
+  "events": { "maxStanding": 70, "maxSeated": 50, "includedNoCharge": 20 },
+  "transport": { "carAndDriver": "USD 45++/day for 8 hours (excludes petrol)" },
+  "amenities": [
+    "Complimentary WiFi throughout", "Computer & printer", "Room-to-room phone system",
+    "Home theatre (movie studio theatre) with surround sound", "Extensive DVD library",
+    "Satellite TV + DVD in master suites & theatre", "iPod docks & CD players in bedrooms",
+    "3 coffee machines", "40 varieties of tea", "Wine cooler", "Barbecue",
+    "Hairdryers & mini-safes in bedrooms", "Customised bathroom toiletries",
+    "Baby cot, high-chair, inflatable pool toys", "2 garden balés", "Rooftop yoga & massage decks"
+  ],
+  "reviewsCount": 94,
+  "booking": {
+    "type": "enquiry",
+    "enquireUrl": "https://booking.privatehomesandvillas.com/availvillas.html?villaid=YlangYlang"
+  }
+}
