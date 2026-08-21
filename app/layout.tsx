@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Cormorant_Garamond, Jost } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import { SmoothScroll } from '@/components/SmoothScroll'
 import { SiteHeader } from '@/components/SiteHeader'
@@ -8,18 +8,19 @@ import { AmbientAudio } from '@/components/AmbientAudio'
 import { StickyReserve } from '@/components/StickyReserve'
 import { JsonLd } from '@/components/JsonLd'
 
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+// Self-hosted (variable) fonts — no build-time network fetch, CSP-safe.
+const cormorant = localFont({
+  src: '../public/fonts/cormorant.woff2',
   variable: '--font-cormorant',
   display: 'swap',
+  weight: '300 600',
 })
 
-const jost = Jost({
-  subsets: ['latin'],
-  weight: ['300', '400', '500'],
+const jost = localFont({
+  src: '../public/fonts/jost.woff2',
   variable: '--font-jost',
   display: 'swap',
+  weight: '300 500',
 })
 
 const SITE_URL = 'https://theylangylang.com'

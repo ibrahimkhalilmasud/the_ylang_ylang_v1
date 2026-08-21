@@ -3,12 +3,13 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ['image/avif', 'image/webp'],
-    // Local optimized media lives in /public/media — no remote patterns needed.
   },
   eslint: {
-    // Lint is run explicitly via `pnpm lint`; don't fail production builds on it.
     ignoreDuringBuilds: true,
   },
+  // Windows: build trace can hit EISDIR/readlink on some setups. Disable it —
+  // this is a standalone-output/serverless optimisation we don't need for the demo.
+  outputFileTracing: false,
 }
 
 export default nextConfig

@@ -3,11 +3,33 @@
 Digital guest experience rebuild for **The Ylang Ylang**, a six-bedroom absolute-beachfront
 luxury villa in Saba / Ketewel, Bali (marketed by The Elite Havens Group).
 
-> **Project stage: Research + Scaffold.** This repository currently contains the property
-> research, a verified facts/content layer, the architecture & design direction, and a
-> booking-provider abstraction. The Next.js application shell and page build have **not**
-> yet been implemented — see `docs/PROJECT_STATUS.md` for what's done, what's blocked, and
-> what's next.
+> **Project stage: First complete prototype.** A full, navigable Next.js site is built
+> using the real property photography and video. All facts, prices and reviews are verified
+> from source — nothing is fabricated. See `docs/FINAL_AUDIT.md` and `docs/PROJECT_STATUS.md`.
+
+## Run it
+
+```bash
+pnpm install
+pnpm dev            # http://localhost:3000
+```
+
+Other scripts: `pnpm build && pnpm start` · `pnpm lint` · `pnpm typecheck` · `pnpm test`
+(unit) · `pnpm test:e2e` (Playwright). Regenerate optimized media from `asset/` with
+`node scripts/optimize-media.mjs`.
+
+> **Windows note:** `.npmrc` sets `node-linker=hoisted` so pnpm avoids symlink-permission
+> errors. For faster production image optimization, optionally `pnpm i sharp`.
+
+## Stack
+Next.js 14 (App Router) · TypeScript · Tailwind · Framer Motion · Lenis · React Hook Form
++ Zod. Self-hosted fonts (Cormorant Garamond + Jost). Content lives in `/content` (JSON),
+kept separate from presentation. Booking uses a provider abstraction in `/lib/booking`
+that defaults to the real external enquiry engine.
+
+## Pages
+Home · Villa · Rooms · Dining · Wellness · Experiences · Celebrations · Location · Gallery
+· Reviews · Rates · Book (enquiry) · Contact · Privacy/Terms.
 
 ## What's here now
 ```
@@ -24,28 +46,21 @@ docs/       Research & architecture:
             ├─ COMPETITIVE_RESEARCH.md  luxury-villa web patterns adopted/rejected
             ├─ TECHNICAL_ARCHITECTURE.md stack, rendering, SEO, a11y strategy
             ├─ BOOKING_ARCHITECTURE.md  real (enquiry-based) booking abstraction
-            ├─ ASSET_MANIFEST.md        media inventory (⛔ no assets delivered yet)
-            └─ PROJECT_STATUS.md        phase tracker + blockers
-lib/booking/ Provider-agnostic booking abstraction (enquiry provider is the default).
-public/     Image slots (real property photography pending; placeholders only).
+            ├─ ASSET_MANIFEST.md        real media inventory + alt text
+            ├─ FINAL_AUDIT.md           build summary + verification results
+            └─ PROJECT_STATUS.md        phase tracker + open items
+app/         Next.js routes (see Pages above).
+components/   UI system (Hero, EditorialSection, Gallery, BookingForm, nav, …).
+lib/         media registry, nav, booking provider abstraction.
+asset/       Raw delivered media (source of truth); optimized into public/media.
+public/media/ Web-optimized images, hero video, ambient audio, fonts.
 ```
 
-## Known blockers (need client input)
-1. **Approved photography / media library** — none delivered. The brief forbids
-   fabricating villa imagery, so pages cannot be honestly built until real assets arrive.
-2. **Client PDF/brochure/export** — none present; Phase 2 live-vs-PDF comparison is pending.
-3. **4-bedroom rates, full review list, press, and legal (privacy/terms) text** — not yet captured.
-
-## Getting started (once the app shell is added)
-The intended stack is Next.js + TypeScript + Tailwind + Framer Motion + Lenis (see
-`docs/TECHNICAL_ARCHITECTURE.md`). When scaffolded, the run commands will be:
-
-```bash
-pnpm install
-pnpm dev
-```
-
-Until then this repo is research + content + architecture only.
+## Open items (need client input)
+1. **PDF/brochure/export** — not delivered; Phase 2 live-vs-PDF comparison pending.
+2. **4-bedroom rates, full 94-review list, press, and legal (privacy/terms) text** — pending.
+3. **Music licensing** — delivered tracks are commercially titled; confirm rights before
+   public launch (ambient audio is opt-in / off by default meanwhile).
 
 ## Data accuracy
 All facts trace to the live site (`https://www.theylangylang.com/`, crawled 2026-08-21)

@@ -36,15 +36,21 @@ facts, prices, reviews, or availability (brief §7/§27/§39).
 - Experience-led IA rather than a room catalogue (brief §11).
 - New verified fact surfaced from assets: **Est. 2002** (brand key art).
 
-## Verification checklist (to be completed on this machine)
-- [ ] `pnpm install` — see note on Windows symlink fix (.npmrc node-linker=hoisted)
-- [ ] `pnpm dev` — visual pass (home, rooms, book, gallery, mobile)
-- [ ] `pnpm lint`
-- [ ] `pnpm typecheck`
-- [ ] `pnpm build`
-- [ ] `pnpm test` (unit: booking + content integrity)
-- [ ] `pnpm test:e2e` (smoke: home, rooms, book, rates)
-- [ ] Lighthouse pass (targets: Perf 90+, A11y 95+, BP 95+, SEO 95+)
+## Verification checklist — completed 2026-08-21
+- [x] `pnpm install` (Windows: `.npmrc` `node-linker=hoisted` avoids symlink EISDIR)
+- [x] `pnpm dev` — visual pass: home hero (video), rooms, booking flow, mobile menu
+- [x] `pnpm lint` — clean
+- [x] `pnpm typecheck` — 0 errors
+- [x] `pnpm build` — 20 routes static; home 145kB First Load JS
+- [x] `pnpm test` — 6 unit tests pass (booking + content integrity, incl. "no fake rating")
+- [x] `pnpm test:e2e` — 8 pass (home/rooms/book/rates × desktop + mobile)
+- [ ] Lighthouse pass (targets: Perf 90+, A11y 95+, BP 95+, SEO 95+) — recommend running
+      with `sharp` installed; not run in this environment.
+
+## Booking verified end-to-end
+The enquiry form builds the real external handoff URL and shows an honest "enquiry ready"
+state — **no fake availability, no fake confirmation, no payment**. Verified URL:
+`booking.privatehomesandvillas.com/availvillas.html?villaid=YlangYlang&checkin=…&checkout=…&guests=…`
 
 ## Known follow-ups / not-yet-done
 - Playwright e2e requires a production server (`build && start`); browsers must be

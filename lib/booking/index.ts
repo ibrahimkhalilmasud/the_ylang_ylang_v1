@@ -4,21 +4,17 @@
 
 import type { BookingProvider } from './types'
 import { enquiryProvider } from './enquiry-provider'
+import { mockProvider } from './mock-provider'
+import { externalProvider } from './external-provider'
 
 export * from './types'
 
 export function getBookingProvider(): BookingProvider {
-  const selected = process.env.NEXT_PUBLIC_BOOKING_PROVIDER
-
-  switch (selected) {
+  switch (process.env.NEXT_PUBLIC_BOOKING_PROVIDER) {
     case 'mock':
-      // Lazy-load so mock code never ships to production bundles unless explicitly chosen.
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      return require('./mock-provider').mockProvider as BookingProvider
+      return mockProvider
     case 'external':
-      // Placeholder for a future real availability API, if Elite Havens exposes one.
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      return require('./external-provider').externalProvider as BookingProvider
+      return externalProvider
     case 'enquiry':
     default:
       return enquiryProvider
