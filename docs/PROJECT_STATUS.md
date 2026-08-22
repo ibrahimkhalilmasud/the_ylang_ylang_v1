@@ -60,3 +60,10 @@ pnpm lint / typecheck / test / test:e2e
 node scripts/optimize-media.mjs   # regenerate optimized media from asset/
 ```
 Windows note: `.npmrc` sets `node-linker=hoisted` to avoid pnpm symlink errors.
+
+## Deployment (2026-08-21)
+- **GitHub:** https://github.com/ibrahimkhalilmasud/the_ylang_ylang_v1 (public, branch `main`)
+- **Live site (share with client):** https://theylangylangv1.vercel.app
+- **Host:** Vercel (team "Arpon's projects", hobby plan), project `the_ylang_ylang_v1`,
+  auto-deploys on every push to `main`. Framework auto-detected (Next.js). Public — no
+  login required to view. Build: pnpm install + next build, ~34s, 20 static routes.
