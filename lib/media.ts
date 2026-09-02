@@ -63,6 +63,16 @@ export const IMAGES = {
 
 export const BRAND_KEYART = '/media/images/brand-keyart.jpg'
 
+// Cinematic hero video (muted, looping) with a high-quality poster still for instant,
+// layout-shift-free first paint and autoplay fallback.
+export const HERO_VIDEO = {
+  mp4: '/media/video/hero.mp4',
+  webm: '/media/video/hero.webm',
+  poster: '/media/video/hero-poster.jpg',
+  posterAlt:
+    'The Ylang Ylang at blue hour — the two-storey pavilion glowing above a candlelit reflecting pool, framed by frangipani and coconut palms',
+}
+
 export const AMBIENT_AUDIO = '/media/audio/ambient.mp3'
 
 // Flat list for the gallery grid.

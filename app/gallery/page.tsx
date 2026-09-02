@@ -4,7 +4,7 @@ import { Gallery } from '@/components/Gallery'
 export const metadata: Metadata = {
   title: 'Gallery',
   description:
-    'A gallery of The Ylang Ylang — the beachfront estate, its six suites, the 16-metre pool, dining and the black sands of Saba, Bali.',
+    'A gallery of The Ylang Ylang — the beachfront estate, its six ensuite bedrooms, the 16-metre pool, dining and the black sands of Saba, Bali.',
 }
 
 export default function GalleryPage() {

@@ -5,7 +5,7 @@ const ITEMS: { value: string; label: string }[] = [
   { value: '6', label: 'Ensuite bedrooms' },
   { value: '12', label: 'Guests' },
   { value: '16m', label: 'Beachfront pool' },
-  { value: '2,100', label: 'sqm of grounds' },
+  { value: '2,100', label: 'sqm of paradise' },
 ]
 
 /** Compact verified-facts strip. Sourced from content/villa/facts.json. */

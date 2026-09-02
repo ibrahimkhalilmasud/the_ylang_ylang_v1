@@ -21,7 +21,8 @@ export function PageHero({ image, eyebrow, title, intro }: Props) {
         sizes="100vw"
         className="object-cover animate-ken-burns"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-sand-black/90" />
+      {/* Lighter scrim, weighted to the bottom where the title sits — lets the photo breathe */}
+      <div className="absolute inset-0 bg-gradient-to-t from-sand-black/85 via-black/10 to-transparent" />
       <div className="container-luxe relative z-10 flex h-full flex-col justify-end pb-14 md:pb-20">
         <Reveal>
           <p className="eyebrow mb-4">{eyebrow}</p>

@@ -14,7 +14,7 @@ interface Experience {
 // Experience-led IA (brief §11) — each links to a full page.
 const EXPERIENCES: Experience[] = [
   { eyebrow: 'The Estate', title: 'Architecture & living spaces', href: '/villa', image: IMAGES.livingArea, span: 'wide' },
-  { eyebrow: 'The Rooms', title: 'Six suites facing the sea', href: '/rooms', image: IMAGES.masterSuite },
+  { eyebrow: 'The Rooms', title: 'Six ensuite bedrooms', href: '/rooms', image: IMAGES.masterSuite },
   { eyebrow: 'The Table', title: 'A resident chef', href: '/dining', image: IMAGES.dining },
   { eyebrow: 'The Wellness', title: 'Spa, yoga & healing', href: '/wellness', image: IMAGES.beachDeck, span: 'tall' },
   { eyebrow: 'The Journey', title: 'Bali, curated', href: '/experiences', image: IMAGES.entranceSculpture },

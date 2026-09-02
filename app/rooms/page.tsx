@@ -24,7 +24,7 @@ export default function RoomsPage() {
       <PageHero
         image={IMAGES.masterTurndown}
         eyebrow="The Rooms"
-        title="Six suites, facing the sea"
+        title="Six ensuite bedrooms"
         intro={rooms.summary}
       />
 

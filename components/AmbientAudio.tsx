@@ -1,120 +1,75 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { AMBIENT_AUDIO } from '@/lib/media'
-
-const KEY = 'yy-ambient-on'
-const TARGET_VOLUME = 0.28
+import { useEffect, useState } from 'react'
+import { ambientAudio } from '@/lib/ambient-audio'
 
 /**
- * Ambient audio (brief §23). Browsers forbid autoplay-with-sound before the visitor
- * interacts, so instead we arm a one-time listener: the first click/scroll/keypress/touch
- * ANYWHERE starts the music and fades it in — as close to autoplay as browsers permit.
- * The visitor can mute with the floating toggle; that choice persists in localStorage and
- * is respected (a returning muted visitor is not re-started). Never blocks understanding
- * of the site, and the animated bars respect prefers-reduced-motion.
+ * Floating ambient-music control. All audio state lives in the `ambientAudio` singleton
+ * (lib/ambient-audio.ts), so there is only ever ONE audio element — navigation and
+ * remounts never spawn a second track.
+ *
+ * Behaviour:
+ * - Browsers block autoplay-with-sound before a gesture, so unless the visitor previously
+ *   turned music OFF, the first interaction anywhere fades it in (close to autoplay).
+ * - The button is a clear ON/OFF toggle with a visible label and an aria-label that names
+ *   the action. Turning it OFF reliably pauses and never auto-restarts.
  */
 export function AmbientAudio() {
-  const audioRef = useRef<HTMLAudioElement | null>(null)
   const [on, setOn] = useState(false)
   const [mounted, setMounted] = useState(false)
 
-  const fade = useCallback((el: HTMLAudioElement, to: number) => {
-    const step = () => {
-      const diff = to - el.volume
-      if (Math.abs(diff) < 0.03) {
-        el.volume = to
-        if (to === 0) el.pause()
-        return
-      }
-      el.volume = Math.max(0, Math.min(TARGET_VOLUME, el.volume + diff * 0.12))
-      requestAnimationFrame(step)
-    }
-    step()
-  }, [])
-
-  const start = useCallback(
-    (el: HTMLAudioElement) => {
-      el.play()
-        .then(() => {
-          setOn(true)
-          fade(el, TARGET_VOLUME)
-        })
-        .catch(() => setOn(false))
-    },
-    [fade],
-  )
-
   useEffect(() => {
     setMounted(true)
-    const el = new Audio(AMBIENT_AUDIO)
-    el.loop = true
-    el.volume = 0
-    el.preload = 'auto'
-    audioRef.current = el
+    setOn(ambientAudio.isOn())
+    const unsub = ambientAudio.subscribe(setOn)
 
-    // If the visitor previously muted, honour that and don't auto-start.
-    const muted = localStorage.getItem(KEY) === '0'
-
-    let armed = !muted
-    const onFirstInteraction = () => {
+    // Arm a one-time auto-start on first interaction — only if the visitor hasn't opted out.
+    let armed = ambientAudio.storedPreference() !== 'off'
+    const onFirst = () => {
       if (!armed) return
       armed = false
-      removeListeners()
-      start(el)
+      remove()
+      ambientAudio.play()
     }
-    const events: (keyof WindowEventMap)[] = [
-      'pointerdown',
-      'keydown',
-      'touchstart',
-      'wheel',
-      'scroll',
-    ]
-    const opts = { once: false, passive: true } as AddEventListenerOptions
-    const removeListeners = () =>
-      events.forEach((e) => window.removeEventListener(e, onFirstInteraction))
-
-    if (armed) events.forEach((e) => window.addEventListener(e, onFirstInteraction, opts))
+    const events: (keyof WindowEventMap)[] = ['pointerdown', 'keydown', 'touchstart', 'wheel', 'scroll']
+    const remove = () => events.forEach((e) => window.removeEventListener(e, onFirst))
+    if (armed) events.forEach((e) => window.addEventListener(e, onFirst, { passive: true }))
 
     return () => {
-      removeListeners()
-      el.pause()
+      unsub()
+      remove()
     }
-  }, [start])
-
-  const toggle = () => {
-    const el = audioRef.current
-    if (!el) return
-    const next = !on
-    setOn(next)
-    localStorage.setItem(KEY, next ? '1' : '0')
-    if (next) start(el)
-    else fade(el, 0)
-  }
+  }, [])
 
   if (!mounted) return null
 
+  const label = on ? 'Turn music off' : 'Turn music on'
+
   return (
     <button
-      onClick={toggle}
+      onClick={() => ambientAudio.toggle()}
+      aria-label={label}
       aria-pressed={on}
-      aria-label={on ? 'Mute ambient sound' : 'Play ambient sound'}
-      title={on ? 'Mute ambient sound' : 'Play ambient sound'}
-      className="fixed bottom-20 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 bg-sand-black/70 text-gold backdrop-blur-md transition-colors hover:border-gold hover:text-gold-soft xl:bottom-5"
+      title={label}
+      className="group fixed bottom-20 right-4 z-40 flex items-center gap-2.5 rounded-full border border-gold/30 bg-sand-black/70 py-2 pl-3 pr-4 text-gold backdrop-blur-md transition-colors duration-500 ease-luxe hover:border-gold/70 xl:bottom-6 xl:right-6"
     >
-      <span className="flex h-4 items-end gap-[3px]" aria-hidden="true">
+      {/* Equalizer bars — animate only while playing; still under reduced motion */}
+      <span className="flex h-3.5 items-end gap-[2px]" aria-hidden="true">
         {[0, 1, 2, 3].map((i) => (
           <span
             key={i}
             className="block w-[2px] bg-current transition-all duration-300 motion-reduce:!animate-none"
             style={{
-              height: on ? `${6 + ((i * 5 + 4) % 12)}px` : '4px',
-              animation: on ? `eq 0.9s ${i * 0.12}s ease-in-out infinite alternate` : 'none',
+              height: on ? `${5 + ((i * 5 + 4) % 10)}px` : '3px',
+              animation: on ? `yyeq 0.9s ${i * 0.12}s ease-in-out infinite alternate` : 'none',
             }}
           />
         ))}
       </span>
-      <style>{`@keyframes eq { from { transform: scaleY(0.4) } to { transform: scaleY(1) } }`}</style>
+      <span className="text-[0.62rem] font-medium uppercase tracking-wide2">
+        {on ? 'Music on' : 'Music off'}
+      </span>
+      <style>{`@keyframes yyeq { from { transform: scaleY(0.35) } to { transform: scaleY(1) } }`}</style>
     </button>
   )
 }

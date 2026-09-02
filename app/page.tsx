@@ -15,20 +15,6 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* Intro statement */}
-      <section className="container-luxe py-20 text-center md:py-28">
-        <Reveal>
-          <p className="eyebrow mb-6">Absolute Beachfront · Saba, Bali</p>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <p className="mx-auto max-w-3xl font-serif text-2xl leading-snug text-bone md:text-4xl md:leading-[1.25]">
-            Nestled between coconut trees and a deserted black-sand beach, The Ylang Ylang is
-            an outstanding six-bedroom destination villa — a retreat of absolute calm that
-            exemplifies its mantra of <span className="italic text-gold-soft">Passionate Serenity</span>.
-          </p>
-        </Reveal>
-      </section>
-
       <QuickFacts />
 
       {/* The Estate */}
@@ -56,10 +42,10 @@ export default function HomePage() {
       {/* The Rooms */}
       <EditorialSection
         eyebrow="The Rooms"
-        title="Suites that face each other across the water"
+        title="Six ensuite bedrooms"
         body={[
-          'Two master suites sit closest to the beach, each with a king four-poster draped in gold organza, a sunken bath, and a private plunge pool looking out to sea.',
-          'Two queen rooms and two adjoining junior rooms complete the six, sleeping up to twelve guests in quiet, art-filled comfort.',
+          'Two master suites sit closest to the beach, each with a king four-poster draped in gold organza, a sunken bath, and a private plunge pool facing the sea.',
+          'Four further bedrooms — two queen and two adjoining junior rooms — open toward the pool and gardens, sleeping up to twelve guests in quiet, art-filled comfort.',
         ]}
         image={IMAGES.masterSuite}
         reverse

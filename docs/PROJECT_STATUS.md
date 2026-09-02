@@ -67,3 +67,23 @@ Windows note: `.npmrc` sets `node-linker=hoisted` to avoid pnpm symlink errors.
 - **Host:** Vercel (team "Arpon's projects", hobby plan), project `the_ylang_ylang_v1`,
   auto-deploys on every push to `main`. Framework auto-detected (Next.js). Public — no
   login required to view. Build: pnpm install + next build, ~34s, 20 static routes.
+
+## Owner-feedback refinements (2026-09-02)
+- **Hero:** replaced the still with a cinematic villa **video** (asset `Part 4.mp4` — the
+  glowing pavilion + candlelit pool at blue hour), autoplay/muted/loop/playsInline, poster
+  fallback, no controls. Hero is now **clean** — no "Bali · Est. 2002 · Passionate Serenity
+  · six-bedroom" labels over the video; only a quiet wordmark. Supporting statement + CTAs
+  moved to a calm band BELOW the video.
+- **Music:** rewritten around a single module-level singleton (`lib/ambient-audio.ts`) so
+  navigation/remounts can never create a second track. Button now has a clear ON/OFF text
+  label ("Music on/off") + aria-label ("Turn music on/off"); OFF hard-stops (fade + a
+  guaranteed pause) and never auto-restarts. Visible on mobile, above the sticky Reserve bar.
+- **Accuracy:** removed every "six suites facing the sea" claim → "Six ensuite bedrooms"
+  (home, rooms, gallery, experience grid, rooms.json). Home rooms copy now states 2 sea-
+  facing masters + 4 pool/garden bedrooms. "2,100 sqm of grounds" → "of paradise".
+- **Clutter:** `FullBleed` now defaults to a clean photo with the caption band beneath it
+  (was centred overlay); `PageHero` scrim lightened. Logo simplified to one swappable
+  wordmark (LOGO_SRC constant) — dropped duplicate "Bali · Indonesia" subtext.
+- Verified: typecheck / lint / unit (6) / build (20 static) / e2e (12, desktop+mobile,
+  incl. music-toggle & hero-video tests). Responsive checked at mobile 375, tablet 768,
+  desktop — no horizontal overflow; music button clears the sticky bar.

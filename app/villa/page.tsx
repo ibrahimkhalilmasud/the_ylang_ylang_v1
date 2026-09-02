@@ -22,7 +22,7 @@ export default function VillaPage() {
         image={IMAGES.heroVillaLawn}
         eyebrow="The Estate"
         title="A private estate, open to the ocean"
-        intro="Contemporary Asian architecture fused with traditional Balinese craft, set within 2,100 square metres of beachfront grounds."
+        intro="Contemporary Asian architecture fused with traditional Balinese craft, set within 2,100 square metres of beachfront paradise."
       />
 
       <EditorialSection
