@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { ALL_IMAGES, type GalleryCategory, type MediaImage } from '@/lib/media'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { ALL_IMAGES, previewFor, type GalleryCategory, type MediaImage } from '@/lib/media'
 
 const CATEGORIES: { key: GalleryCategory | 'all'; label: string }[] = [
   { key: 'all', label: 'All' },
@@ -68,27 +68,10 @@ export function Gallery() {
         ))}
       </div>
 
-      {/* Masonry grid */}
-      <div className="container-luxe columns-1 gap-4 sm:columns-2 lg:columns-3 [column-fill:_balance]">
+      {/* Masonry grid of cards */}
+      <div className="container-luxe columns-1 gap-5 sm:columns-2 lg:columns-3 [column-fill:_balance]">
         {items.map((img, i) => (
-          <motion.button
-            layout
-            key={img.src}
-            onClick={() => setActive(i)}
-            className="group mb-4 block w-full break-inside-avoid overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: (i % 6) * 0.04 }}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              width={img.w}
-              height={img.h}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="w-full transition-transform duration-[1.2s] ease-luxe group-hover:scale-105"
-            />
-          </motion.button>
+          <GalleryTile key={img.src} img={img} index={i} onOpen={() => setActive(i)} />
         ))}
       </div>
 
@@ -142,6 +125,87 @@ export function Gallery() {
         )}
       </AnimatePresence>
     </>
+  )
+}
+
+/**
+ * A gallery card: a still photo that plays a short muted clip on hover (desktop) or when
+ * scrolled into the centre of the viewport (touch). Framed as an elevated card with a soft
+ * shadow that lifts on hover for a premium "wow" feel. Reduced-motion → still image only.
+ */
+function GalleryTile({ img, index, onOpen }: { img: MediaImage; index: number; onOpen: () => void }) {
+  const reduce = useReducedMotion()
+  const wrapRef = useRef<HTMLButtonElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [activated, setActivated] = useState(false)
+  const [playing, setPlaying] = useState(false)
+  const clip = previewFor(img)
+
+  const activate = () => {
+    if (reduce) return
+    setActivated(true)
+    const v = videoRef.current
+    if (v) v.play().then(() => setPlaying(true)).catch(() => setPlaying(false))
+  }
+  const deactivate = () => {
+    const v = videoRef.current
+    if (v) v.pause()
+    setPlaying(false)
+  }
+
+  useEffect(() => {
+    if (reduce) return
+    if (!window.matchMedia('(hover: none)').matches) return
+    const el = wrapRef.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => (e.isIntersecting && e.intersectionRatio > 0.6 ? activate() : deactivate())),
+      { threshold: [0, 0.6, 1] },
+    )
+    io.observe(el)
+    return () => io.disconnect()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reduce])
+
+  return (
+    <motion.button
+      ref={wrapRef}
+      layout
+      onClick={onOpen}
+      onMouseEnter={activate}
+      onMouseLeave={deactivate}
+      className="group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-[3px] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.7)] ring-1 ring-white/5 transition-all duration-500 ease-luxe hover:-translate-y-1 hover:shadow-[0_22px_50px_-16px_rgba(0,0,0,0.85)] hover:ring-gold/30"
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.6, delay: (index % 6) * 0.05, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <Image
+        src={img.src}
+        alt={img.alt}
+        width={img.w}
+        height={img.h}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="w-full transition-transform duration-[1.3s] ease-luxe group-hover:scale-[1.04]"
+      />
+      {activated && (
+        <video
+          ref={videoRef}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-luxe ${
+            playing ? 'opacity-100' : 'opacity-0'
+          }`}
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-hidden="true"
+        >
+          <source src={clip} type="video/mp4" />
+        </video>
+      )}
+      {/* Subtle gradient frame for depth (no text) */}
+      <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+    </motion.button>
   )
 }
 

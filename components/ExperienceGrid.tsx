@@ -54,9 +54,9 @@ export function ExperienceGrid() {
             ].join(' ')}
           >
             <Link href={exp.href} className="group block">
-              {/* Clean media — no text over it */}
+              {/* Clean media — no text over it — framed as an elevated card that lifts on hover */}
               <div
-                className={`relative overflow-hidden ${
+                className={`relative overflow-hidden rounded-[3px] shadow-[0_12px_34px_-14px_rgba(0,0,0,0.75)] ring-1 ring-white/5 transition-all duration-500 ease-luxe group-hover:-translate-y-1.5 group-hover:shadow-[0_26px_60px_-18px_rgba(0,0,0,0.9)] group-hover:ring-gold/30 ${
                   exp.span === 'tall' ? 'aspect-[3/4] lg:h-full' : 'aspect-[4/3]'
                 }`}
               >

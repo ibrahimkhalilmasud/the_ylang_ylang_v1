@@ -35,7 +35,7 @@ export function ReviewWall({ limit, heading = true }: Props) {
         <div className="columns-1 gap-6 md:columns-2 lg:columns-3 [column-fill:_balance]">
           {items.map((r, i) => (
             <Reveal key={i} delay={(i % 3) * 0.06} className="mb-6 break-inside-avoid">
-              <figure className="border border-white/10 bg-sand-black/40 p-7">
+              <figure className="rounded-[3px] border border-white/10 bg-gradient-to-b from-sand-deep to-sand-black/50 p-7 shadow-[0_14px_40px_-18px_rgba(0,0,0,0.75)] ring-1 ring-white/5 transition-all duration-500 ease-luxe hover:-translate-y-1 hover:border-gold/25 hover:shadow-[0_24px_54px_-20px_rgba(0,0,0,0.85)]">
                 <span aria-hidden className="font-serif text-5xl leading-none text-gold/50">“</span>
                 <blockquote className="mt-1 font-serif text-lg italic leading-relaxed text-bone/90">
                   {r.text}

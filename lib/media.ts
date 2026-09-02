@@ -85,5 +85,21 @@ export const PREVIEW = {
   celebration: '/media/preview/celebration.mp4',
 } as const
 
+// Pick a thematic preview clip for any image, by its primary category tag. Lets every
+// gallery tile play a matching short clip on hover / scroll without a bespoke clip each.
+const TAG_TO_PREVIEW: Record<GalleryCategory, string> = {
+  villa: PREVIEW.estate,
+  rooms: PREVIEW.rooms,
+  pool: PREVIEW.celebration,
+  beach: PREVIEW.celebration,
+  dining: PREVIEW.dining,
+  wellness: PREVIEW.wellness,
+  experiences: PREVIEW.journey,
+}
+
+export function previewFor(image: MediaImage): string {
+  return TAG_TO_PREVIEW[image.tags[0]] ?? PREVIEW.estate
+}
+
 // Flat list for the gallery grid.
 export const ALL_IMAGES: MediaImage[] = Object.values(IMAGES)

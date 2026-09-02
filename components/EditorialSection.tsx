@@ -21,14 +21,14 @@ export function EditorialSection({ eyebrow, title, body, image, reverse, cta, pr
     <section className="container-luxe py-16 md:py-24">
       <div className={`grid items-center gap-10 md:gap-16 lg:grid-cols-2 ${reverse ? 'lg:[direction:rtl]' : ''}`}>
         <Reveal className={`${reverse ? 'lg:[direction:ltr]' : ''}`}>
-          <div className="group relative aspect-[4/3] w-full overflow-hidden">
+          <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-[3px] shadow-[0_16px_44px_-18px_rgba(0,0,0,0.8)] ring-1 ring-white/5 transition-all duration-500 ease-luxe hover:shadow-[0_28px_64px_-20px_rgba(0,0,0,0.9)] hover:ring-gold/25">
             <Image
               src={image.src}
               alt={image.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority={priority}
-              className="object-cover transition-transform duration-[1.2s] ease-luxe group-hover:scale-105"
+              className="object-cover transition-transform duration-[1.3s] ease-luxe group-hover:scale-[1.04]"
             />
           </div>
         </Reveal>

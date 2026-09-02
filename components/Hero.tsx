@@ -61,24 +61,15 @@ export function Hero() {
           </video>
         )}
 
-        {/* Soft bottom vignette only — keeps the villa clean while grounding the wordmark */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-sand-black/70 to-transparent" />
-
-        {/* Quiet wordmark, bottom-centred — the single brand identity over the image */}
-        <motion.div
-          className="absolute inset-x-0 bottom-8 z-10 flex justify-center"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h1 className="text-center font-serif text-4xl font-light tracking-[0.03em] text-bone sm:text-5xl md:text-6xl">
-            The Ylang Ylang
-          </h1>
-        </motion.div>
+        {/* Soft bottom vignette only — a gentle grade into the section below; the villa
+            video stays fully clean, with no text over it. */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-sand-black/60 to-transparent" />
       </div>
 
       {/* Supporting statement + CTAs — a calm band below the video */}
       <div className="container-luxe py-12 text-center md:py-16">
+        {/* Visually-hidden page heading for SEO/accessibility (the name lives in the header) */}
+        <h1 className="sr-only">The Ylang Ylang — Private Beachfront Villa, Bali</h1>
         <motion.p
           className="eyebrow mb-5"
           initial={{ opacity: 0, y: 12 }}
