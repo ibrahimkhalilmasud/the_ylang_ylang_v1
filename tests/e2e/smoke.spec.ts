@@ -9,9 +9,9 @@ test('homepage renders hero and primary CTA', async ({ page }) => {
   await expect(page.getByRole('link', { name: /reserve your stay/i }).first()).toBeVisible()
 })
 
-test('can navigate to rooms and see the six ensuite bedrooms', async ({ page }) => {
+test('can navigate to rooms and see the six bedrooms', async ({ page }) => {
   await page.goto('/rooms', opts)
-  await expect(page.getByRole('heading', { name: /six ensuite bedrooms/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /six bedrooms in paradise/i })).toBeVisible()
   await expect(page.getByText('Master Suites').first()).toBeVisible()
 })
 
@@ -48,4 +48,27 @@ test('hero video is present, muted, looping and inline', async ({ page }) => {
     return v ? { muted: v.muted, loop: v.loop, playsInline: v.playsInline } : null
   })
   expect(attrs).toEqual({ muted: true, loop: true, playsInline: true })
+})
+
+test('experience tile plays a video on hover, label sits below the image', async ({ page }) => {
+  await page.goto('/', opts)
+  const tile = page.locator('a[href="/villa"]').filter({ has: page.locator('img') }).first()
+  await tile.scrollIntoViewIfNeeded()
+  // Label text is present and below the media (structure check).
+  await expect(tile.getByText('Architecture & living spaces')).toBeVisible()
+  // Hover attaches + plays the preview video.
+  await tile.hover()
+  const video = tile.locator('video')
+  await expect(video).toHaveCount(1, { timeout: 4000 })
+  await expect(video).toHaveJSProperty('muted', true)
+  await expect(video).toHaveJSProperty('loop', true)
+})
+
+test('hero has no Reserve button (moved to header) and header shows full brand name', async ({ page }) => {
+  await page.goto('/', opts)
+  // Header wordmark reads "The Ylang Ylang".
+  await expect(page.locator('header').getByText('The Ylang Ylang')).toBeVisible()
+  // The hero band CTA is "Discover the villa"; no "Reserve your stay" in the hero section.
+  const heroReserve = page.locator('section').first().getByRole('link', { name: /reserve your stay/i })
+  await expect(heroReserve).toHaveCount(0)
 })

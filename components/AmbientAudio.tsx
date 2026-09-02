@@ -51,7 +51,7 @@ export function AmbientAudio() {
       aria-label={label}
       aria-pressed={on}
       title={label}
-      className="group fixed bottom-20 right-4 z-40 flex items-center gap-2.5 rounded-full border border-gold/30 bg-sand-black/70 py-2 pl-3 pr-4 text-gold backdrop-blur-md transition-colors duration-500 ease-luxe hover:border-gold/70 xl:bottom-6 xl:right-6"
+      className="group fixed bottom-24 right-4 z-40 flex items-center gap-2.5 rounded-full border border-gold/30 bg-sand-black/75 p-3 text-gold backdrop-blur-md transition-colors duration-500 ease-luxe hover:border-gold/70 xl:bottom-6 xl:right-6 xl:py-2 xl:pl-3 xl:pr-4"
     >
       {/* Equalizer bars — animate only while playing; still under reduced motion */}
       <span className="flex h-3.5 items-end gap-[2px]" aria-hidden="true">
@@ -66,7 +66,8 @@ export function AmbientAudio() {
           />
         ))}
       </span>
-      <span className="text-[0.62rem] font-medium uppercase tracking-wide2">
+      {/* Text label on desktop only; mobile stays a compact icon to keep the view clean */}
+      <span className="hidden text-[0.62rem] font-medium uppercase tracking-wide2 xl:inline">
         {on ? 'Music on' : 'Music off'}
       </span>
       <style>{`@keyframes yyeq { from { transform: scaleY(0.35) } to { transform: scaleY(1) } }`}</style>

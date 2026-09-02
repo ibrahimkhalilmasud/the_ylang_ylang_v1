@@ -75,5 +75,15 @@ export const HERO_VIDEO = {
 
 export const AMBIENT_AUDIO = '/media/audio/ambient.mp3'
 
+// Short muted preview clips for the "image → video on hover/scroll" tiles.
+export const PREVIEW = {
+  estate: '/media/preview/estate.mp4',
+  rooms: '/media/preview/rooms.mp4',
+  dining: '/media/preview/dining.mp4',
+  wellness: '/media/preview/wellness.mp4',
+  journey: '/media/preview/journey.mp4',
+  celebration: '/media/preview/celebration.mp4',
+} as const
+
 // Flat list for the gallery grid.
 export const ALL_IMAGES: MediaImage[] = Object.values(IMAGES)

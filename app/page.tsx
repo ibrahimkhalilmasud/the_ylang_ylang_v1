@@ -42,9 +42,9 @@ export default function HomePage() {
       {/* The Rooms */}
       <EditorialSection
         eyebrow="The Rooms"
-        title="Six ensuite bedrooms"
+        title="Six bedrooms in paradise"
         body={[
-          'Two master suites sit closest to the beach, each with a king four-poster draped in gold organza, a sunken bath, and a private plunge pool facing the sea.',
+          'Two master suites sit closest to the beach, each with a king four-poster draped in gold organza, a sunken bath, and a private plunge pool with a sea view.',
           'Four further bedrooms — two queen and two adjoining junior rooms — open toward the pool and gardens, sleeping up to twelve guests in quiet, art-filled comfort.',
         ]}
         image={IMAGES.masterSuite}

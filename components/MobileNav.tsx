@@ -34,7 +34,7 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
         >
           <div className="container-luxe flex h-full flex-col py-6">
             <div className="flex items-center justify-between">
-              <span className="font-serif text-xl text-bone">Ylang Ylang</span>
+              <span className="font-serif text-xl text-bone">The Ylang Ylang</span>
               <button onClick={onClose} aria-label="Close menu" className="p-2 text-bone">
                 <span className="relative block h-6 w-6">
                   <span className="absolute left-0 top-1/2 h-px w-6 rotate-45 bg-current" />

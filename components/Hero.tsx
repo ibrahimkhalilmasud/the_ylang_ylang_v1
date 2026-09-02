@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { HERO_VIDEO } from '@/lib/media'
-import { RESERVE_HREF } from '@/lib/nav'
 
 /**
  * Cinematic hero. The villa video is the dominant element and is kept CLEAN — no property
@@ -100,15 +99,12 @@ export function Hero() {
           <span className="italic text-gold-soft">Passionate Serenity.</span>
         </motion.p>
         <motion.div
-          className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
+          className="mt-9 flex justify-center"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Link href={RESERVE_HREF} className="btn-primary">
-            Reserve your stay
-          </Link>
           <Link href="/villa" className="btn-ghost">
             Discover the villa
           </Link>
