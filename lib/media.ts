@@ -70,7 +70,7 @@ export const HERO_VIDEO = {
   webm: '/media/video/hero.webm',
   poster: '/media/video/hero-poster.jpg',
   posterAlt:
-    'The Ylang Ylang beachfront — the pool and sculpture garden opening directly onto Saba’s black-sand shore and the ocean beyond',
+    'The Ylang Ylang at dusk — the illuminated two-storey pavilion and open living areas behind a candlelit 16-metre pool',
 }
 
 export const AMBIENT_AUDIO = '/media/audio/ambient.mp3'
